@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet id="1" author="tokamo">
+        <validCheckSum>ANY</validCheckSum>
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_user (
+            id varchar(100) PRIMARY KEY,
+            username varchar(20) NOT NULL,
+            password varchar(100) NOT NULL,
+            role varchar(15) NOT NULL
+            );
+        </sql>
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_film (
+            id varchar(100) PRIMARY KEY,
+            category varchar(100) NOT NULL,
+            description varchar(500) NOT NULL,
+            preview_img varchar(100) NOT NULL,
+            title varchar(100) NOT NULL,
+            trailer_link varchar(100) NOT NULL,
+            year varchar(10) NOT NULL,
+            bg_img varchar(100) NOT NULL,
+            rating varchar(10) NOT NULL
+            );
+        </sql>
+        <sql>
+            INSERT INTO t_user(id, password, username, role)
+            VALUES ('6260861c-88c4-11ec-a8a3-0242ac120002', 'ADMIN', 'ADMIN', 'ADMIN');
+        </sql>
+    </changeSet>
+</databaseChangeLog>
